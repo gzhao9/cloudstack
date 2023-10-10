@@ -97,6 +97,7 @@ public class NetworkOrchestratorTest extends TestCase {
     private String guruName = "GuestNetworkGuru";
     private String dhcpProvider = "VirtualRouter";
     private NetworkGuru guru = mock(NetworkGuru.class);
+    private Network network;
 
     NetworkOfferingVO networkOffering = mock(NetworkOfferingVO.class);
 
@@ -111,6 +112,7 @@ public class NetworkOrchestratorTest extends TestCase {
     @Before
     public void setUp() {
         // make class-scope mocks
+        network = mock(Network.class);
         testOrchastrator._nicDao = mock(NicDao.class);
         testOrchastrator._networksDao = mock(NetworkDao.class);
         testOrchastrator._networkModel = mock(NetworkModel.class);
@@ -242,7 +244,7 @@ public class NetworkOrchestratorTest extends TestCase {
 
     @Test
     public void testConfigureNicProfileBasedOnRequestedIpTestMacNull() {
-        Network network = mock(Network.class);
+        
         NicProfile requestedNicProfile = new NicProfile();
         NicProfile nicProfile = Mockito.spy(new NicProfile());
 
@@ -256,7 +258,7 @@ public class NetworkOrchestratorTest extends TestCase {
 
     @Test
     public void testConfigureNicProfileBasedOnRequestedIpTestNicProfileMacNotNull() {
-        Network network = mock(Network.class);
+        
         NicProfile requestedNicProfile = new NicProfile();
         NicProfile nicProfile = Mockito.spy(new NicProfile());
 
@@ -284,7 +286,7 @@ public class NetworkOrchestratorTest extends TestCase {
     }
 
     private void testConfigureNicProfileBasedOnRequestedIpTestRequestedIp(String requestedIpv4Address) {
-        Network network = mock(Network.class);
+        
         NicProfile requestedNicProfile = new NicProfile();
         NicProfile nicProfile = Mockito.spy(new NicProfile());
 
@@ -311,7 +313,7 @@ public class NetworkOrchestratorTest extends TestCase {
     }
 
     private void testConfigureNicProfileBasedOnRequestedIpTestGateway(String ipv4Gateway) {
-        Network network = mock(Network.class);
+        
         NicProfile requestedNicProfile = new NicProfile();
         NicProfile nicProfile = Mockito.spy(new NicProfile());
 
@@ -337,7 +339,7 @@ public class NetworkOrchestratorTest extends TestCase {
     }
 
     private void testConfigureNicProfileBasedOnRequestedIpTestNetmask(String ipv4Netmask) {
-        Network network = mock(Network.class);
+        
         NicProfile requestedNicProfile = new NicProfile();
         NicProfile nicProfile = Mockito.spy(new NicProfile());
 
@@ -349,7 +351,7 @@ public class NetworkOrchestratorTest extends TestCase {
 
     @Test(expected = InvalidParameterValueException.class)
     public void testConfigureNicProfileBasedOnRequestedIpTestIPAddressVONull() {
-        Network network = mock(Network.class);
+        
         NicProfile requestedNicProfile = new NicProfile();
         NicProfile nicProfile = Mockito.spy(new NicProfile());
 
