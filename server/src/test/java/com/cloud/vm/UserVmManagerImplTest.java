@@ -706,8 +706,7 @@ public class UserVmManagerImplTest {
     public void testUserDataDenyOverride() {
         Long userDataId = 1L;
 
-        VirtualMachineTemplate template = Mockito.mock(VirtualMachineTemplate.class);
-        when(template.getUserDataId()).thenReturn(2L);
+        VirtualMachineTemplate template = CreateMockVirtualMachineTemplate(2L);
         when(template.getUserDataOverridePolicy()).thenReturn(UserData.UserDataOverridePolicy.DENYOVERRIDE);
 
         userVmManagerImpl.finalizeUserData(null, userDataId, template);
@@ -718,8 +717,7 @@ public class UserVmManagerImplTest {
         String templateUserData = "testTemplateUserdata";
         Long userDataId = 1L;
 
-        VirtualMachineTemplate template = Mockito.mock(VirtualMachineTemplate.class);
-        when(template.getUserDataId()).thenReturn(2L);
+        VirtualMachineTemplate template = CreateMockVirtualMachineTemplate(2L);
         when(template.getUserDataOverridePolicy()).thenReturn(UserData.UserDataOverridePolicy.ALLOWOVERRIDE);
 
         UserDataVO apiUserDataVO = Mockito.mock(UserDataVO.class);
@@ -740,8 +738,7 @@ public class UserVmManagerImplTest {
         doReturn(apiUserDataVO).when(userDataDao).findById(userDataId);
         when(apiUserDataVO.getUserData()).thenReturn(userData);
 
-        VirtualMachineTemplate template = Mockito.mock(VirtualMachineTemplate.class);
-        when(template.getUserDataId()).thenReturn(null);
+        VirtualMachineTemplate template = CreateMockVirtualMachineTemplate(null);
 
         String finalUserdata = userVmManagerImpl.finalizeUserData(null, userDataId, template);
 
@@ -752,8 +749,7 @@ public class UserVmManagerImplTest {
     public void testUserDataAllowOverrideWithoutAPIuserdata() {
         String templateUserData = "testTemplateUserdata";
 
-        VirtualMachineTemplate template = Mockito.mock(VirtualMachineTemplate.class);
-        when(template.getUserDataId()).thenReturn(2L);
+        VirtualMachineTemplate template = CreateMockVirtualMachineTemplate(2L);
         when(template.getUserDataOverridePolicy()).thenReturn(UserData.UserDataOverridePolicy.ALLOWOVERRIDE);
         UserDataVO templateUserDataVO = Mockito.mock(UserDataVO.class);
         doReturn(templateUserDataVO).when(userDataDao).findById(2L);
@@ -767,8 +763,7 @@ public class UserVmManagerImplTest {
     @Test
     public void testUserDataAllowOverrideWithUserdataText() {
         String userData = "testUserdata";
-        VirtualMachineTemplate template = Mockito.mock(VirtualMachineTemplate.class);
-        when(template.getUserDataId()).thenReturn(null);
+        VirtualMachineTemplate template = CreateMockVirtualMachineTemplate(null);
 
         String finalUserdata = userVmManagerImpl.finalizeUserData(userData, null, template);
 
@@ -1067,5 +1062,10 @@ public class UserVmManagerImplTest {
         userVmManagerImpl.updateVncPasswordIfItHasChanged(vncPassword, newPassword, virtualMachineProfile);
         Mockito.verify(userVmDao).findById(vmId);
         Mockito.verify(userVmDao).update(vmId, userVmVoMock);
+    }
+    VirtualMachineTemplate CreateMockVirtualMachineTemplate(Long returnResult){
+        VirtualMachineTemplate template = Mockito.mock(VirtualMachineTemplate.class);
+        when(template.getUserDataId()).thenReturn(returnResult);
+        return  template;
     }
 }
