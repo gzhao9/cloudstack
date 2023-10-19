@@ -250,8 +250,7 @@ public class BrocadeVcsGuestNetworkGuruTest {
 
         when(netmodel.findPhysicalNetworkId(anyLong(), (String)any(), (TrafficType)any())).thenReturn(NETWORK_ID);
 
-        final BrocadeVcsDeviceVO brocadeDevice = mock(BrocadeVcsDeviceVO.class);
-        when(brocadeDevice.getHostId()).thenReturn(NETWORK_ID);
+        final BrocadeVcsDeviceVO brocadeDevice =CreateMockBrocadeVcsDeviceVO();
 
         List<BrocadeVcsDeviceVO> devices = new ArrayList();
         devices.add(brocadeDevice);
@@ -310,8 +309,7 @@ public class BrocadeVcsGuestNetworkGuruTest {
 
         when(netmodel.findPhysicalNetworkId(anyLong(), (String)any(), (TrafficType)any())).thenReturn(NETWORK_ID);
 
-        final BrocadeVcsDeviceVO brocadeDevice = mock(BrocadeVcsDeviceVO.class);
-        when(brocadeDevice.getHostId()).thenReturn(NETWORK_ID);
+        final BrocadeVcsDeviceVO brocadeDevice =CreateMockBrocadeVcsDeviceVO();
 
         final List<BrocadeVcsDeviceVO> devices = mock(List.class);
         when(devices.isEmpty()).thenReturn(true);
@@ -364,8 +362,7 @@ public class BrocadeVcsGuestNetworkGuruTest {
 
         when(netmodel.findPhysicalNetworkId(anyLong(), (String)any(), (TrafficType)any())).thenReturn(NETWORK_ID);
 
-        final BrocadeVcsDeviceVO brocadeDevice = mock(BrocadeVcsDeviceVO.class);
-        when(brocadeDevice.getHostId()).thenReturn(NETWORK_ID);
+        final BrocadeVcsDeviceVO brocadeDevice =CreateMockBrocadeVcsDeviceVO();
 
         List<BrocadeVcsDeviceVO> devices = new ArrayList();
         devices.add(brocadeDevice);
@@ -416,8 +413,7 @@ public class BrocadeVcsGuestNetworkGuruTest {
 
         when(netmodel.findPhysicalNetworkId(anyLong(), (String)any(), (TrafficType)any())).thenReturn(NETWORK_ID);
 
-        final BrocadeVcsDeviceVO brocadeDevice = mock(BrocadeVcsDeviceVO.class);
-        when(brocadeDevice.getHostId()).thenReturn(NETWORK_ID);
+        final BrocadeVcsDeviceVO brocadeDevice =CreateMockBrocadeVcsDeviceVO();
 
         final List<BrocadeVcsDeviceVO> devices = mock(List.class);
         when(devices.isEmpty()).thenReturn(true);
@@ -461,8 +457,7 @@ public class BrocadeVcsGuestNetworkGuruTest {
 
         when(netmodel.findPhysicalNetworkId(anyLong(), (String)any(), (TrafficType)any())).thenReturn(NETWORK_ID);
 
-        final BrocadeVcsDeviceVO brocadeDevice = mock(BrocadeVcsDeviceVO.class);
-        when(brocadeDevice.getHostId()).thenReturn(NETWORK_ID);
+        final BrocadeVcsDeviceVO brocadeDevice =CreateMockBrocadeVcsDeviceVO();
 
         final List<BrocadeVcsDeviceVO> devices = new ArrayList();
         devices.add(brocadeDevice);
@@ -497,8 +492,7 @@ public class BrocadeVcsGuestNetworkGuruTest {
 
         when(netmodel.findPhysicalNetworkId(anyLong(), (String)any(), (TrafficType)any())).thenReturn(NETWORK_ID);
 
-        final BrocadeVcsDeviceVO brocadeDevice = mock(BrocadeVcsDeviceVO.class);
-        when(brocadeDevice.getHostId()).thenReturn(NETWORK_ID);
+        final BrocadeVcsDeviceVO brocadeDevice =CreateMockBrocadeVcsDeviceVO();
 
         final List<BrocadeVcsDeviceVO> devices = mock(List.class);
         when(devices.isEmpty()).thenReturn(true);
@@ -536,8 +530,7 @@ public class BrocadeVcsGuestNetworkGuruTest {
         when(mapping.getVlanId()).thenReturn(14);
         when(vcsmapdao.findByNetworkId(anyLong())).thenReturn(mapping);
 
-        final BrocadeVcsDeviceVO brocadeDevice = mock(BrocadeVcsDeviceVO.class);
-        when(brocadeDevice.getHostId()).thenReturn(NETWORK_ID);
+        final BrocadeVcsDeviceVO brocadeDevice =CreateMockBrocadeVcsDeviceVO();
 
         final List<BrocadeVcsDeviceVO> devices = new ArrayList();
         devices.add(brocadeDevice);
@@ -579,8 +572,7 @@ public class BrocadeVcsGuestNetworkGuruTest {
         when(vcsmapdao.findByNetworkId(anyLong())).thenReturn(mapping);
         when(vcsmapdao.remove(anyLong())).thenReturn(true);
 
-        final BrocadeVcsDeviceVO brocadeDevice = mock(BrocadeVcsDeviceVO.class);
-        when(brocadeDevice.getHostId()).thenReturn(NETWORK_ID);
+        final BrocadeVcsDeviceVO brocadeDevice =CreateMockBrocadeVcsDeviceVO();
 
         final List<BrocadeVcsDeviceVO> devices = mock(List.class);
         when(devices.isEmpty()).thenReturn(true);
@@ -589,5 +581,10 @@ public class BrocadeVcsGuestNetworkGuruTest {
         final boolean result = guru.trash(network, offering);
         assertTrue(result == false);
         verify(agentmgr, times(0)).easySend(eq(NETWORK_ID), (Command)any());
+    }
+    BrocadeVcsDeviceVO CreateMockBrocadeVcsDeviceVO() {
+        BrocadeVcsDeviceVO brocadeDevice = mock(BrocadeVcsDeviceVO.class);//
+        when(brocadeDevice.getHostId()).thenReturn(NETWORK_ID);
+        return brocadeDevice;
     }
 }

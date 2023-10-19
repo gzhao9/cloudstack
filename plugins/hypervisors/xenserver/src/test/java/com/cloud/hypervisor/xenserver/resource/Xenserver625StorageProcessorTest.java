@@ -61,6 +61,8 @@ public class Xenserver625StorageProcessorTest {
 
     @Mock
     private Connection connectionMock;
+    @Mock
+    PBD pbdMock;
 
     private String pathMock = "pathMock";
 
@@ -245,7 +247,7 @@ public class Xenserver625StorageProcessorTest {
 
     @Test
     public void forgetSrTest() throws XenAPIException, XmlRpcException {
-        PBD pbdMock = Mockito.mock(PBD.class);
+        
         Set<PBD> pbds = new HashSet<>();
         pbds.add(pbdMock);
 
@@ -262,7 +264,7 @@ public class Xenserver625StorageProcessorTest {
 
     @Test
     public void unplugPbdTest() throws XenAPIException, XmlRpcException {
-        PBD pbdMock = Mockito.mock(PBD.class);
+        
 
         xenserver625StorageProcessor.unplugPbd(connectionMock, pbdMock);
 
@@ -286,7 +288,7 @@ public class Xenserver625StorageProcessorTest {
     }
 
     private void prepareAndExecuteUnplugMethodForException(Class<? extends Throwable> exceptionClass) throws XenAPIException, XmlRpcException {
-        PBD pbdMock = Mockito.mock(PBD.class);
+        
         Mockito.doThrow(exceptionClass).when(pbdMock).unplug(connectionMock);
         xenserver625StorageProcessor.unplugPbd(connectionMock, pbdMock);
     }
@@ -381,7 +383,7 @@ public class Xenserver625StorageProcessorTest {
                     Mockito.eq(pathMock), Mockito.eq("file"), Mockito.eq("file"), Mockito.eq(false),
                     Mockito.anyMap())).thenReturn(srMock);
 
-            PBD pbdMock = Mockito.mock(PBD.class);
+            
             Mockito.when(PBD.create(Mockito.eq(connectionMock), Mockito.any(Record.class))).thenReturn(pbdMock);
 
             SR sr = xenserver625StorageProcessor.createNewFileSr(connectionMock, pathMock);
@@ -408,7 +410,7 @@ public class Xenserver625StorageProcessorTest {
         SR srMock = Mockito.mock(SR.class);
         Mockito.doNothing().when(xenserver625StorageProcessor).forgetSr(connectionMock, srMock);
 
-        PBD pbdMock = Mockito.mock(PBD.class);
+        
         Mockito.doNothing().when(xenserver625StorageProcessor).unplugPbd(connectionMock, pbdMock);
 
         xenserver625StorageProcessor.removeSrAndPbdIfPossible(connectionMock, srMock, pbdMock);
@@ -432,7 +434,7 @@ public class Xenserver625StorageProcessorTest {
 
     @Test
     public void removeSrAndPbdIfPossiblePbdNotNullButSrNull() {
-        PBD pbdMock = Mockito.mock(PBD.class);
+        
         Mockito.doNothing().when(xenserver625StorageProcessor).unplugPbd(connectionMock, pbdMock);
 
         xenserver625StorageProcessor.removeSrAndPbdIfPossible(connectionMock, null, pbdMock);

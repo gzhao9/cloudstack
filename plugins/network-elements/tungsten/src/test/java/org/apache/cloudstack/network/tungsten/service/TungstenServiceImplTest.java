@@ -274,6 +274,10 @@ public class TungstenServiceImplTest {
     @Mock
     IpAddressManager ipAddressManager;
 
+    @Mock
+    TungstenSecurityGroupRuleVO tungstenSecurityGroupRuleVO;
+    
+
     TungstenServiceImpl tungstenService;
 
     AutoCloseable closeable;
@@ -727,7 +731,7 @@ public class TungstenServiceImplTest {
         ProjectVO projectVO = mock(ProjectVO.class);
         TungstenProviderVO tungstenProviderVO = mock(TungstenProviderVO.class);
         DomainVO domainVO = mock(DomainVO.class);
-        TungstenSecurityGroupRuleVO tungstenSecurityGroupRuleVO = mock(TungstenSecurityGroupRuleVO.class);
+        
         TungstenAnswer createTungstenSecurityGroupAnswer = mock(TungstenAnswer.class);
         TungstenAnswer addTungstenSecurityGroupRuleAnswer = mock(TungstenAnswer.class);
 
@@ -767,7 +771,7 @@ public class TungstenServiceImplTest {
         TungstenAnswer addTungstenSecurityGroupRuleAnswer = mock(TungstenAnswer.class);
         TungstenProviderVO tungstenProviderVO = mock(TungstenProviderVO.class);
         net.juniper.tungsten.api.types.SecurityGroup securityGroup = mock(net.juniper.tungsten.api.types.SecurityGroup.class);
-        TungstenSecurityGroupRuleVO tungstenSecurityGroupRuleVO = mock(TungstenSecurityGroupRuleVO.class);
+        
         NicVO nicVO = mock(NicVO.class);
 
         when(tungstenProviderDao.findAll()).thenReturn(List.of(tungstenProviderVO));
@@ -822,7 +826,7 @@ public class TungstenServiceImplTest {
         SecurityRule securityRule = mock(SecurityRule.class);
         SecurityGroupVO securityGroupVO = mock(SecurityGroupVO.class);
         TungstenProviderVO tungstenProviderVO = mock(TungstenProviderVO.class);
-        TungstenSecurityGroupRuleVO tungstenSecurityGroupRuleVO = mock(TungstenSecurityGroupRuleVO.class);
+        
         TungstenAnswer addTungstenSecurityGroupRuleAnswer = mock(TungstenAnswer.class);
         TungstenAnswer removeTungstenSecurityGroupRuleAnswer = mock(TungstenAnswer.class);
         NicVO nicVO = mock(NicVO.class);
@@ -874,7 +878,7 @@ public class TungstenServiceImplTest {
         Nic nic = mock(Nic.class);
         SecurityGroupVO securityGroupVO = mock(SecurityGroupVO.class);
         SecurityGroupRuleVO securityGroupRuleVO = mock(SecurityGroupRuleVO.class);
-        TungstenSecurityGroupRuleVO tungstenSecurityGroupRuleVO = mock(TungstenSecurityGroupRuleVO.class);
+        
         TungstenProviderVO tungstenProviderVO = mock(TungstenProviderVO.class);
         TungstenAnswer addTungstenSecondaryIpAddressAnswer = mock(TungstenAnswer.class);
         TungstenAnswer addTungstenSecurityGroupRuleAnswer = mock(TungstenAnswer.class);
@@ -905,7 +909,7 @@ public class TungstenServiceImplTest {
         Network network = mock(Network.class);
         DataCenter dataCenter = mock(DataCenter.class);
         TungstenAnswer removeTungstenSecondaryIpAddressAnswer = mock(TungstenAnswer.class);
-        TungstenSecurityGroupRuleVO tungstenSecurityGroupRuleVO = mock(TungstenSecurityGroupRuleVO.class);
+        
         SecurityGroupVO securityGroupVO = mock(SecurityGroupVO.class);
         TungstenAnswer removeTungstenSecurityGroupRuleAnswer = mock(TungstenAnswer.class);
 
@@ -1635,7 +1639,7 @@ public class TungstenServiceImplTest {
         net.juniper.tungsten.api.types.SecurityGroup securityGroup = mock(net.juniper.tungsten.api.types.SecurityGroup.class);
         NicVO nicVO = mock(NicVO.class);
         SecurityGroupRuleVO securityGroupRuleVO = mock(SecurityGroupRuleVO.class);
-        TungstenSecurityGroupRuleVO tungstenSecurityGroupRuleVO = mock(TungstenSecurityGroupRuleVO.class);
+        
         TungstenAnswer addTungstenSecurityGroupRuleAnswer = mock(TungstenAnswer.class);
 
         when(dataCenterDao.findById(anyLong())).thenReturn(dataCenterVO);
@@ -1670,7 +1674,7 @@ public class TungstenServiceImplTest {
         NicVO nicVO = mock(NicVO.class);
         SecurityGroupRuleVO securityGroupRuleVO = mock(SecurityGroupRuleVO.class);
         TungstenAnswer removeTungstenSecurityGroupRuleAnswer = mock(TungstenAnswer.class);
-        TungstenSecurityGroupRuleVO tungstenSecurityGroupRuleVO = mock(TungstenSecurityGroupRuleVO.class);
+        
 
         when(dataCenterDao.findById(anyLong())).thenReturn(dataCenterVO);
         when(dataCenterVO.isSecurityGroupEnabled()).thenReturn(true);

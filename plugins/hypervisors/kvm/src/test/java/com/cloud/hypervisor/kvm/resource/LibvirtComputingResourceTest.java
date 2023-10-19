@@ -5067,7 +5067,6 @@ public class LibvirtComputingResourceTest {
         final KVMStoragePoolManager storagePoolMgr = Mockito.mock(KVMStoragePoolManager.class);
         final LibvirtUtilitiesHelper libvirtUtilitiesHelper = Mockito.mock(LibvirtUtilitiesHelper.class);
         final Connect conn = Mockito.mock(Connect.class);
-        final LibvirtVMDef vmDef = Mockito.mock(LibvirtVMDef.class);
 
         final NicTO nic = Mockito.mock(NicTO.class);
         final NicTO[] nics = new NicTO[]{nic};
@@ -5120,7 +5119,6 @@ public class LibvirtComputingResourceTest {
 
         final KVMStoragePoolManager storagePoolMgr = Mockito.mock(KVMStoragePoolManager.class);
         final LibvirtUtilitiesHelper libvirtUtilitiesHelper = Mockito.mock(LibvirtUtilitiesHelper.class);
-        final LibvirtVMDef vmDef = Mockito.mock(LibvirtVMDef.class);
 
         final NicTO nic = Mockito.mock(NicTO.class);
         final NicTO[] nics = new NicTO[]{nic};
@@ -5164,7 +5162,6 @@ public class LibvirtComputingResourceTest {
         final KVMStoragePoolManager storagePoolMgr = Mockito.mock(KVMStoragePoolManager.class);
         final LibvirtUtilitiesHelper libvirtUtilitiesHelper = Mockito.mock(LibvirtUtilitiesHelper.class);
         final Connect conn = Mockito.mock(Connect.class);
-        final LibvirtVMDef vmDef = Mockito.mock(LibvirtVMDef.class);
 
         final NicTO nic = Mockito.mock(NicTO.class);
         final NicTO[] nics = new NicTO[]{nic};
@@ -5215,7 +5212,6 @@ public class LibvirtComputingResourceTest {
         final KVMStoragePoolManager storagePoolMgr = Mockito.mock(KVMStoragePoolManager.class);
         final LibvirtUtilitiesHelper libvirtUtilitiesHelper = Mockito.mock(LibvirtUtilitiesHelper.class);
         final Connect conn = Mockito.mock(Connect.class);
-        final LibvirtVMDef vmDef = Mockito.mock(LibvirtVMDef.class);
 
         final NicTO nic = Mockito.mock(NicTO.class);
         final NicTO[] nics = new NicTO[]{nic};
@@ -5266,7 +5262,6 @@ public class LibvirtComputingResourceTest {
         final KVMStoragePoolManager storagePoolMgr = Mockito.mock(KVMStoragePoolManager.class);
         final LibvirtUtilitiesHelper libvirtUtilitiesHelper = Mockito.mock(LibvirtUtilitiesHelper.class);
         final Connect conn = Mockito.mock(Connect.class);
-        final LibvirtVMDef vmDef = Mockito.mock(LibvirtVMDef.class);
         final VirtualRoutingResource virtRouterResource = Mockito.mock(VirtualRoutingResource.class);
 
         final NicTO nic = Mockito.mock(NicTO.class);
@@ -5345,7 +5340,6 @@ public class LibvirtComputingResourceTest {
         final KVMStoragePoolManager storagePoolMgr = Mockito.mock(KVMStoragePoolManager.class);
         final LibvirtUtilitiesHelper libvirtUtilitiesHelper = Mockito.mock(LibvirtUtilitiesHelper.class);
         final Connect conn = Mockito.mock(Connect.class);
-        final LibvirtVMDef vmDef = Mockito.mock(LibvirtVMDef.class);
         final VirtualRoutingResource virtRouterResource = Mockito.mock(VirtualRoutingResource.class);
 
         final NicTO nic = Mockito.mock(NicTO.class);
@@ -5425,7 +5419,6 @@ public class LibvirtComputingResourceTest {
         final KVMStoragePoolManager storagePoolMgr = Mockito.mock(KVMStoragePoolManager.class);
         final LibvirtUtilitiesHelper libvirtUtilitiesHelper = Mockito.mock(LibvirtUtilitiesHelper.class);
         final Connect conn = Mockito.mock(Connect.class);
-        final LibvirtVMDef vmDef = Mockito.mock(LibvirtVMDef.class);
 
         final NicTO nic = Mockito.mock(NicTO.class);
         final NicTO[] nics = new NicTO[]{nic};
